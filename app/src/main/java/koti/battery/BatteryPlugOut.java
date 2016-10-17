@@ -18,9 +18,12 @@ public class BatteryPlugOut extends BroadcastReceiver {
         Date date = new Date();
         Log.d("BatteryPlugOut", date.toString());
         SharedPreferences sharedPref = context.getSharedPreferences("holister", Context.MODE_PRIVATE);
-       // long yuva=sharedPref.getLong("reddy",0);
+        long yuva=sharedPref.getLong("reddy",0);
+        long result=date.getTime()-yuva;
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putLong("reddy2", date.getTime());
+        editor.putLong("reddy3", result);
+        editor.putLong("record", sharedPref.getLong("record",0)+result).commit();
         editor.commit();
     }
 }

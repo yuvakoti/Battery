@@ -20,11 +20,12 @@ public class MainActivity extends AppCompatActivity {
         textView4=(TextView)findViewById(R.id.textView4);
         SharedPreferences sharedPref = getSharedPreferences("holister", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        long koti=sharedPref.getLong("reddy",0);
-        long lohith=sharedPref.getLong("reddy2",0);
-        Log.d("Battery",koti +" "+lohith);
+        //long koti=sharedPref.getLong("reddy",0);
+        long lohith=sharedPref.getLong("reddy3",0);
+        //Log.d("Battery",koti +" "+lohith);
+        long record=sharedPref.getLong("record", 0);
 
-        long result = lohith - koti;
+        long result = record;
 
         long sec = result/ 1000 % 60;
         long min = result / (60 * 1000) % 60;
@@ -37,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         textView3.setText("min" + String.valueOf(min));
         textView4.setText("sec "+ String.valueOf(sec));
 
+       // long record=sharedPref.getLong("record", 0);
+
+        Log.d("record in main", ""+record);
 
     }
 
